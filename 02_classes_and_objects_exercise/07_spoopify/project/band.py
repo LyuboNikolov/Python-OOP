@@ -27,6 +27,6 @@ class Band:
         except StopIteration:
             return f"Album {album_name} is not found."
 
-    def details(self):
+    def details(self) -> str:
         albums_details = "\n".join(album.details() for album in self.albums)
         return f"Band {self.name}\n{albums_details}"
