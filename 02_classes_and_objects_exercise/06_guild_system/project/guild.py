@@ -8,10 +8,10 @@ class Guild:
         self.players: List[Player] = []
 
     def assign_player(self, player: Player) -> str:
-        if player in self.players:
+        if self.name == player.guild:
             return f"Player {player.name} is already in the guild."
 
-        elif player.guild != "Unaffiliated":
+        if player.guild != player.DEFAULT_GUILD:
             return f"Player {player.name} is in another guild."
 
         self.players.append(player)
@@ -22,7 +22,7 @@ class Guild:
         try:
             player = next(filter(lambda p: p.name == player_name, self.players))
             self.players.remove(player)
-            player.guild = "Unaffiliated"
+            player.guild = player.DEFAULT_GUILD
 
             return f"Player {player_name} has been removed from the guild."
 
