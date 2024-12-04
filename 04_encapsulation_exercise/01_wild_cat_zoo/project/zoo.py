@@ -85,7 +85,7 @@ class Zoo:
         for cheetah in cheetahs:
             result += f"{cheetah}\n"
 
-        return result[:-1]
+        return result.strip()
 
     def workers_status(self) -> str:
         result = f"You have {len(self.workers)} workers\n"
@@ -107,4 +107,4 @@ class Zoo:
         for vet in vets:
             result += f"{vet}\n"
 
-        return result[:-1]
+        return result.strip()
